@@ -1,0 +1,53 @@
+<atlassian-plugin key="${atlassian.plugin.key}" name="${project.name}" plugins-version="2">
+    <plugin-info>
+        <description>${project.description}</description>
+        <version>${project.version}</version>
+        <vendor name="${project.organization.name}" url="${project.organization.url}" />
+        <param name="plugin-icon">images/pluginIcon.png</param>
+        <param name="plugin-logo">images/pluginLogo.png</param>
+    </plugin-info>
+
+    <!-- add our i18n resource -->
+    <resource type="i18n" name="i18n" location="pagela-macro"/>
+    
+    <!-- add our web resources -->
+    <web-resource key="pagela-macro-resources" name="pagela-macro Web Resources">
+        <dependency>com.atlassian.auiplugin:ajs</dependency>
+        <dependency>com.atlassian.auiplugin:aui-select2</dependency>
+        <dependency>com.atlassian.auiplugin:aui-form-validation</dependency>
+        <dependency>com.atlassian.auiplugin:aui-buttons</dependency>
+        <dependency>com.atlassian.auiplugin:aui-tooltips</dependency>
+        
+        <transformation extension="soy">
+            <transformer key="soyTransformer">
+                <functions>com.atlassian.confluence.plugins.soy:soy-core-functions</functions>
+            </transformer>
+        </transformation>
+        <transformation extension="js">
+            <transformer key="jsI18n"/>
+        </transformation>
+        
+        <resource type="download" name="pagela-macro.css" location="css/pagela-macro.css"/>
+        <resource type="download" name="pagela-macro.js" location="/js/pagela-macro.js"/>
+        <resource type="download" name="images/" location="/images"/>
+
+        <context>de.langs.pagela-macro.context</context>
+        
+    </web-resource>
+
+    <xhtml-macro name="pagela" class="de.langs.macro.Pagela" key="pagela-macro">
+        <description key="pagela.macro.desc"/>
+        <alias>pagelabeler</alias>
+        <alias>page-labeler</alias>
+        <alias>page-labels</alias>
+        <parameters>
+            <parameter name="labels" type="string" required="true" />
+            <parameter name="buttonText" type="string" />
+            <parameter name="labelAltName" type="string" />
+            <parameter name="labelHelp" type="string" />
+            <parameter name="pageAltName" type="string" />
+            <parameter name="pageHelp" type="string" />
+        </parameters>
+    </xhtml-macro>
+
+</atlassian-plugin>

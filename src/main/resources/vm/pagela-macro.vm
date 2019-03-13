@@ -1,0 +1,49 @@
+###requireResourcesForContext("de.langs.pagela-macro.context")
+
+#requireResource("de.langs.pagela-macro:pagela-macro-resources")
+#requireResource("confluence.web.resources:jquery")
+## https://developer.atlassian.com/server/confluence/form-token-handling/
+#requireResource("confluence.web.resources:safe-ajax")
+###requireResource("com.atlassian.auiplugin:aui-select2")
+###requireResource("com.atlassian.auiplugin:aui-form-validation")
+###requireResource("com.atlassian.auiplugin:aui-buttons")
+###requireResource("com.atlassian.auiplugin:aui-tooltips")
+
+
+<form class="aui pagela-form" id="pagela-form" name="pagelaForm" method="POST">
+    <div class="field-group">
+        ## Select page
+        <label for="page-for-labels">$!{pageAltName}</label>
+        ## not possible to add validation to autocomplete field, throws $tooltip is undefined
+        <input id="page-for-labels" name="pageToAddLabelsTo" class="autocomplete-page text full-width-field"
+            type="text" data-max="2" data-none-message="$i18n.getText('pagela.macro.page.none.message', $!{pageAltName})" data-template="{title}" 
+            ## data-aui-validation-field data-aui-validation-pageexists
+            placeholder="$!{pageHelp}">
+    </div>
+    <div class="field-group">
+        ## Select labels
+        <label for="select-labels">$!{labelAltName}</label>
+        <select id="select-labels" name="labelsToSelect" class="select2 pagela-select" style="width: 80%" 
+            data-aui-validation-field required data-aui-validation-required-msg="$i18n.getText('pagela.macro.labels.validation.message', $!{labelAltName})" multiple
+            data-placeholder="$!{labelHelp}">
+            #foreach( ${label} in ${labels} )
+            <option value="$!{label}">$!{label}</option>
+            #end
+        </select>
+    </div>
+    
+    ## $!: https://velocity.apache.org/engine/1.5/user-guide.html#quietreferencenotation
+    <div class="buttons-container">
+        <div class="buttons">
+            ## Submit button
+            <button id="add-labels" class="aui-button aui-button-primary" type="submit">
+                <span class="aui-icon aui-icon-small aui-iconfont-tag"></span> $!{buttonText}
+            </button>
+            <span class="submit-result pagela-note" id="pagela-note"></span>
+        </div>
+    </div>
+    
+    <input type="hidden" name="pageAltName" value="$!{pageAltName}">
+    
+</form>
+    
