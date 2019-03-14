@@ -27,11 +27,11 @@ This generates a jar file within Maven's target folder. The file can be uploaded
 
 Create a page in Confluence. In the macro browser, search for "pagela". In the setup dialog, add any amount of labels and optionally customize the form's texts.
 
-Save the page with the pagela macro and switch page to the actual view of the page. It will now display a form with two input fields and a button for submission.
+Save the page with the pagela macro and switch to the actual view of the page. It will now display a form with two input fields and a button for submission.
 
-The first field allows to select a page to which the labels should be added do. The second field allows to select one or multiple of the labels, that were configured during the macro setup.
+The first field allows to select a page to which the labels should be added to. The second field allows to select one or multiple of the labels, that were configured during the macro setup.
 
-Upon submitting the form, the label(s) will be added to the specified page. In case there is an issue with the request, appropriate messages will issues to the user.
+Upon submitting the form, the label(s) will be added to the specified page. In case there is an issue with the request, appropriate messages will issued to the user.
 
 ## <a name="dev"></a>Development setup
 
@@ -59,13 +59,7 @@ Distributed under the MIT license. See ``LICENSE`` for more information.
 
 This app is still under development.
 
-I am happy to hear your feedback. Please get in contact if you have found a bug or simply follow the general GitHub process below:
-
-1. Fork it (<https://github.com/yourname/yourproject/fork>)
-2. Create your feature branch (`git checkout -b feature/fooBar`)
-3. Commit your changes (`git commit -am 'Add some fooBar'`)
-4. Push to the branch (`git push origin feature/fooBar`)
-5. Create a new Pull Request
+I am happy to hear your feedback. Please get in contact if you have found a bug or simply follow the general GitHub process by creating a pull request.
 
 ## Attribution
 
