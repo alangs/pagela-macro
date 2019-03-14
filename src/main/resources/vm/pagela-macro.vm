@@ -2,7 +2,6 @@
 
 #requireResource("de.langs.pagela-macro:pagela-macro-resources")
 #requireResource("confluence.web.resources:jquery")
-## https://developer.atlassian.com/server/confluence/form-token-handling/
 #requireResource("confluence.web.resources:safe-ajax")
 ###requireResource("com.atlassian.auiplugin:aui-select2")
 ###requireResource("com.atlassian.auiplugin:aui-form-validation")
@@ -32,7 +31,6 @@
         </select>
     </div>
     
-    ## $!: https://velocity.apache.org/engine/1.5/user-guide.html#quietreferencenotation
     <div class="buttons-container">
         <div class="buttons">
             ## Submit button

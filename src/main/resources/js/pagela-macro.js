@@ -71,7 +71,6 @@ AJS.toInit(function ($) {
      */
     $(".pagela-select").auiSelect2();
 
-    //$("#add-labels").click(function (event) {
     /**
      * Submit event handling
      */

@@ -4,10 +4,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
-
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-
 import com.atlassian.confluence.content.render.xhtml.ConversionContext;
 import com.atlassian.confluence.content.render.xhtml.DefaultConversionContext;
 import com.atlassian.confluence.macro.Macro;
@@ -31,6 +29,8 @@ public class Pagela extends BaseMacro implements Macro {
 
     private final I18nResolver i18n;
 
+    private static final String VM_PATH = "/vm/pagela-macro.vm";
+
     @Autowired
     public Pagela(@ComponentImport VelocityHelperService velocityHelperService,
             @ComponentImport ConfluenceWebResourceManager confluenceWebResourceManager,
@@ -40,8 +40,10 @@ public class Pagela extends BaseMacro implements Macro {
         this.i18n = i18n;
     }
 
+    @SuppressWarnings({"unchecked", "rawtypes"})
     @Override
-    public String execute(Map macroParams, String s, RenderContext renderContext) throws MacroException {
+    public String execute(Map macroParams, String s, RenderContext renderContext)
+            throws MacroException {
         try {
             return execute(macroParams, s, new DefaultConversionContext(renderContext));
         } catch (MacroExecutionException e) {
@@ -50,8 +52,8 @@ public class Pagela extends BaseMacro implements Macro {
     }
 
     @Override
-    public String execute(Map<String, String> parameters, String body, ConversionContext conversionContext)
-            throws MacroExecutionException {
+    public String execute(Map<String, String> parameters, String body,
+            ConversionContext conversionContext) throws MacroExecutionException {
 
         String buttonText = parameters.get("buttonText");
         if (StringUtils.isBlank(buttonText)) {
@@ -114,7 +116,7 @@ public class Pagela extends BaseMacro implements Macro {
     }
 
     private String renderWithVelocityTemplate(Map<String, Object> contextMap) {
-        return velocityHelperService.getRenderedTemplate("/vm/pagela-macro.vm", contextMap);
+        return velocityHelperService.getRenderedTemplate(VM_PATH, contextMap);
     }
 
     private Map<String, Object> getMacroVelocityContext() {

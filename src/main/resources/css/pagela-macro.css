@@ -1,9 +1,9 @@
 /* Adjust width of dropdown on the input page selection field */
 #pagela-form .aui-dd-parent .aui-dropdown {
-	min-width: 100%;
+    min-width: 100%;
 }
 
 /* Position message to the right of submit button*/
 .submit-result {
-	padding-left: 20px;
+    padding-left: 20px;
 }
