@@ -29,14 +29,15 @@
         
         <resource type="download" name="pagela-macro.css" location="css/pagela-macro.css"/>
         <resource type="download" name="pagela-macro.js" location="/js/pagela-macro.js"/>
-        <resource type="download" name="images/" location="/images"/>
 
         <context>de.langs.pagela-macro.context</context>
-        
     </web-resource>
+    
+    <resource type="download" name="images/" location="/images" key="images"/>
 
-    <xhtml-macro name="pagela" class="de.langs.macro.Pagela" key="pagela-macro">
+    <xhtml-macro name="pagela" class="de.langs.macro.Pagela" key="pagela-macro" icon="/download/resources/${project.groupId}.${project.artifactId}/images/pluginLogo.png">
         <description key="pagela.macro.desc"/>
+        <category>confluence-content</category>
         <alias>pagelabeler</alias>
         <alias>page-labeler</alias>
         <alias>page-labels</alias>
