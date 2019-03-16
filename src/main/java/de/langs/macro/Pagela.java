@@ -55,6 +55,10 @@ public class Pagela extends BaseMacro implements Macro {
     public String execute(Map<String, String> parameters, String body,
             ConversionContext conversionContext) throws MacroExecutionException {
 
+        String spaceKey = parameters.get("spaceKey");
+        if (StringUtils.isBlank(spaceKey)) {
+            spaceKey = i18n.getText("de.langs.pagela-macro.pagela.param.spaceKey.default");
+        }
         String buttonText = parameters.get("buttonText");
         if (StringUtils.isBlank(buttonText)) {
             buttonText = i18n.getText("de.langs.pagela-macro.pagela.param.buttonText.default");
@@ -86,6 +90,7 @@ public class Pagela extends BaseMacro implements Macro {
         }
 
         final Map<String, Object> contextMap = getMacroVelocityContext();
+        contextMap.put("spaceKey", spaceKey);
         contextMap.put("buttonText", buttonText);
         contextMap.put("labelAltName", labelAltName);
         contextMap.put("labelHelp", labelHelp);

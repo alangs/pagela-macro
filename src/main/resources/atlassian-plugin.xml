@@ -43,6 +43,7 @@
         <alias>page-labels</alias>
         <parameters>
             <parameter name="labels" type="string" required="true" />
+            <parameter name="spaceKey" type="spacekey" />
             <parameter name="buttonText" type="string" />
             <parameter name="labelAltName" type="string" />
             <parameter name="labelHelp" type="string" />

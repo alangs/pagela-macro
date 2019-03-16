@@ -15,7 +15,7 @@
         <label for="page-for-labels">$!{pageAltName}</label>
         ## not possible to add validation to autocomplete field, throws $tooltip is undefined
         <input id="page-for-labels" name="pageToAddLabelsTo" class="autocomplete-page text full-width-field"
-            type="text" data-max="2" data-none-message="$i18n.getText('pagela.macro.page.none.message', $!{pageAltName})" data-template="{title}" 
+            type="text" data-max="2" data-none-message="$i18n.getText('pagela.macro.page.none.message', $!{pageAltName})" data-template="{title}" data-spacekey="$!{spaceKey}"
             ## data-aui-validation-field data-aui-validation-pageexists
             placeholder="$!{pageHelp}">
     </div>
