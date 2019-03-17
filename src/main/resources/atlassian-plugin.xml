@@ -38,9 +38,10 @@
     <xhtml-macro name="pagela" class="de.langs.macro.Pagela" key="pagela-macro" icon="/download/resources/${project.groupId}.${project.artifactId}/images/pluginLogo.png">
         <description key="pagela.macro.desc"/>
         <category>confluence-content</category>
-        <alias>pagelabeler</alias>
-        <alias>page-labeler</alias>
-        <alias>page-labels</alias>
+        <alias name="pagelabeler"/>
+        <alias name="page-labeler"/>
+        <alias name="labeler"/>
+        <alias name="label-pages"/>
         <parameters>
             <parameter name="labels" type="string" required="true" />
             <parameter name="spaceKey" type="spacekey" />
