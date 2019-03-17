@@ -1,5 +1,5 @@
 # Pagela Confluence Macro
-> A Confluence app (or macro) allowing to add from a configured list of labels one or multiple of these to pages. 
+> Pagela (**Page** **La**beler) is a Confluence app (or macro) allowing to add from a configured list of labels one or multiple of these to pages. 
 
 [![Confluence Version][conf-image]][conf-url]
 
