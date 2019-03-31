@@ -18,26 +18,34 @@ AJS.toInit(function ($) {
                 pageNameWithSpace.indexOf('(') + 1, pageNameWithSpace
                         .lastIndexOf(')')
                         - (pageNameWithSpace.indexOf('(') + 1)));
-    
-        console.log("Pagela: getPageId CALLED " + pageNameWithSpace + " " + pageName + " " + spaceKey);
-    
-        var quote = "'";
-        if (pageName.includes("'")) {
-            quote = "\"";
+        
+        if (!spaceKey || 0 === spaceKey.length) {
+            $form.find(".pagela-note").text(AJS.I18n.getText("pagela.macro.error.getPageId.message", "No spaceKey given - was an item selected from the list?")).show()
+            .fadeOut(5000);
+            // don't execute an actual ajax call if the spaceKey is faulty
+            return AJS.$.ajax();
+            
+        } else {
+            console.log("Pagela: getPageId called with " + pageNameWithSpace + ": " + pageName + ", " + spaceKey);
+            
+            var quote = "'";
+            if (pageName.includes("'")) {
+                quote = "\"";
+            }
+            
+            return AJS.$
+                    .ajax({
+                        type : "GET",
+                        myForm : $form, // pass $form further down to the
+                                        // done call
+                        url : AJS.params.contextPath
+                                + "/rest/api/content/search?cql=type=page+and+title="
+                                + quote + pageName + quote + "+and+space="
+                                + spaceKey,
+                        async : true,
+                        dataType : "json"
+                    });
         }
-    
-        return AJS.$
-                .ajax({
-                    type : "GET",
-                    myForm : $form, // pass $form further down to the
-                                    // done call
-                    url : AJS.params.contextPath
-                            + "/rest/api/content/search?cql=type=page+and+title="
-                            + quote + pageName + quote + "+and+space="
-                            + spaceKey,
-                    async : true,
-                    dataType : "json"
-                });
     }
 
     /**
@@ -49,7 +57,7 @@ AJS.toInit(function ($) {
      *            the label as a String to add to the page
      */
     var addLabel = function (pageId, labelString) {
-        console.log("Pagela: addLabel CALLED " + pageId + " with " + labelString);
+        console.log("Pagela: addLabel called with " + pageId + ", " + labelString);
 
         // this action requires a security token via safe wrapper to ajax
         return AJS.safe.ajax({
@@ -73,11 +81,13 @@ AJS.toInit(function ($) {
      *            the id of the page to which to add the labels to
      */
     var addLabelsToPage = function ($form, pageId) {
+        console.log("Pagela: addLabelsToPage called with " + pageId);
+        
         var pageAltName = $form.find("input[name='pageAltName']").val();
 
         if (typeof pageId === "undefined") {
             $form.find(".pagela-note").text(
-                    AJS.I18n.getText("pagela.macro.page.unknown.message",
+                    AJS.I18n.getText("pagela.macro.error.pageUnknown.message",
                             pageAltName)).show().fadeOut(5000);
             return false;
         }
@@ -86,7 +96,7 @@ AJS.toInit(function ($) {
             // # $(this).val() returns the selected option
             addLabel(pageId, $(this).val())
               .done(function (response) {
-                console.log(response)
+                // console.log(response)
                 
                 $form.find(".pagela-note").text(
                         AJS.I18n.getText("pagela.macro.success.message")).show()
@@ -94,15 +104,14 @@ AJS.toInit(function ($) {
                 
             }).fail(function (xhr, status, error) {
                 var err = JSON.parse(xhr.responseText);
-                console.log(err);
-                console.log(JSON.stringify(err));
+                var errorMessage = err.statusCode + ": " + err.reason;
+                // console.log(JSON.stringify(err));
                 
                 $form.find(".pagela-note").text(
-                        AJS.I18n.getText("pagela.macro.error.message"), err).show()
+                        AJS.I18n.getText("pagela.macro.error.addLabel.message", errorMessage)).show()
                         .fadeOut(5000);
             });
         });
-
 
     }
 
@@ -122,23 +131,21 @@ AJS.toInit(function ($) {
 
         getPageId($form)
           .done(function (response) {
-            console.log(response);
 
-            var pageId;
-            if (response.results[0]) {
-                pageId = response.results[0].id;
-                console.log("Pagela: pageId returned: " + pageId);
+            // check this is an actual response
+            if ((typeof response !== "undefined") && (typeof response.results !== "undefined") && (response.results[0])) {
+                // console.log(response);
+                
+                var pageId = response.results[0].id;                
+                addLabelsToPage($(this.myForm), pageId);
             }
-
-            addLabelsToPage($(this.myForm), pageId);
 
         }).fail(function (xhr, status, error) {
             var err = JSON.parse(xhr.responseText);
-            console.log(err);
-            console.log(JSON.stringify(err));
+            var errorMessage = err.statusCode + ": " + err.reason;
+            // console.log(JSON.stringify(err));
             
-            $form.find(".pagela-note").text(
-                    AJS.I18n.getText("pagela.macro.error.message"), err).show()
+            $form.find(".pagela-note").text(AJS.I18n.getText("pagela.macro.error.getPageId.message", errorMessage)).show()
                     .fadeOut(5000);
         });
 
