@@ -2,6 +2,7 @@ package de.langs.macro;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import org.apache.commons.lang3.StringUtils;
@@ -84,6 +85,7 @@ public class Pagela extends BaseMacro implements Macro {
         List<String> labelsList = new ArrayList<String>();
         if (labels.contains(",")) {
             labelsList = Arrays.asList(labels.split(","));
+            Collections.sort(labelsList);
         } else {
             // just one
             labelsList = Arrays.asList(labels);
