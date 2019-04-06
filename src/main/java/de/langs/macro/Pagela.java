@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.atlassian.confluence.content.render.xhtml.ConversionContext;
@@ -83,13 +84,8 @@ public class Pagela extends BaseMacro implements Macro {
 
         String labels = parameters.get("labels");
         List<String> labelsList = new ArrayList<String>();
-        if (labels.contains(",")) {
-            labelsList = Arrays.asList(labels.split(","));
-            Collections.sort(labelsList);
-        } else {
-            // just one
-            labelsList = Arrays.asList(labels);
-        }
+        labelsList = Arrays.asList(labels.split(",")).stream().distinct().sorted()
+                .collect(Collectors.toList());
 
         final Map<String, Object> contextMap = getMacroVelocityContext();
         contextMap.put("spaceKey", spaceKey);
