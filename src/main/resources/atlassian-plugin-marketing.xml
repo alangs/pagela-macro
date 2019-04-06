@@ -1,0 +1,20 @@
+<atlassian-plugin-marketing>
+
+	<!--Describe names and versions of compatible applications -->
+	<compatibility>
+		<product name="confluence" min="6.0" max="6.15.2" />
+	</compatibility>
+
+	<!-- Describe your app logo and banner. The banner is only displayed in 
+		the UPM. -->
+	<logo image="images/pluginLogo.png" />
+	<banner image="images/pluginBanner.png" />
+
+	<!-- Describe highlight and cropped highlight image assets, in order. -->
+	<highlights>
+		<highlight image="images/highlight1.jpg" cropped="images/highlight1_cropped.jpg" />
+		<highlight image="images/highlight2.jpg" cropped="images/highlight2_cropped.jpg" />
+		<highlight image="images/highlight3.jpg" cropped="images/highlight3_cropped.jpg" />
+	</highlights>
+
+</atlassian-plugin-marketing>
