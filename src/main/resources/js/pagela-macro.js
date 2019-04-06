@@ -13,11 +13,11 @@ AJS.toInit(function ($) {
                 "input[name='pageToAddLabelsTo']").val();
 
         var pageName = $.trim(pageNameWithSpace.substr(0,
-                    pageNameWithSpace.indexOf('(')));
+                    pageNameWithSpace.lastIndexOf('(')));
         var spaceKey = $.trim(pageNameWithSpace.substr(
-                pageNameWithSpace.indexOf('(') + 1, pageNameWithSpace
+                pageNameWithSpace.lastIndexOf('(') + 1, pageNameWithSpace
                         .lastIndexOf(')')
-                        - (pageNameWithSpace.indexOf('(') + 1)));
+                        - (pageNameWithSpace.lastIndexOf('(') + 1)));
         
         if (!spaceKey || 0 === spaceKey.length) {
             $form.find(".pagela-note").text(AJS.I18n.getText("pagela.macro.error.getPageId.message", "No spaceKey given - was an item selected from the list?")).show()
