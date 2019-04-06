@@ -8,8 +8,9 @@ Thus the macro allows to curate labels for certain pages. One use case could be 
 
 The macro provides texts in German or English.
 
-![Pagela-Form1](src/main/resources/images/pagela-macro1.png)
-![Pagela-Form2](src/main/resources/images/pagela-form1.png)
+![Pagela-Form1](src/main/resources/images/highlight3_cropped.png)
+![Pagela-Form2](src/main/resources/images/highlight1_cropped.png)
+![Pagela-Form2](src/main/resources/images/highlight2_cropped.png)
 
 ## Installation
 
