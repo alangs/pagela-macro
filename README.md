@@ -1,7 +1,7 @@
 # Pagela Confluence Macro
 > Pagela (**Page** **La**beler) is a Confluence app (or macro) allowing to add from a configured list of labels one or multiple of these to pages. 
 
-[![Confluence Version][conf-image]][conf-url]
+[![Confluence Version][conf-image]][conf-url] ![License][license-image]
 
 This Confluence app allows to add a macro to a page with labels that can be configured. The rendered result is a form that allows users to add one or more of the predefined labels to be added to any page.
 Thus the macro allows to curate labels for certain pages. One use case could be to setup a skills database where users can select from a list to add labels (i.e. skills) to a page (i.e. their personal page). Thereby different spellings (of labels) can be avoided.
@@ -66,9 +66,10 @@ I am happy to hear your feedback. Please get in contact if you have found a bug 
 Pagela icon from [iconmonstr][icon]
 
 <!-- Markdown link & img dfn's -->
-[conf-image]: https://img.shields.io/badge/Confluence-6.14.1-green.svg
+[conf-image]: https://img.shields.io/badge/Confluence-6.15.2-green.svg
 [conf-url]: https://atlassian.com/software/confluence
 [conf-dev]: https://developer.atlassian.com/server/framework/atlassian-sdk/
 [conf-install-app]: https://confluence.atlassian.com/upm/installing-add-ons-273875715.html
+[license-image]: https://img.shields.io/github/license/alangs/pagela-macro.svg
 [icon]: https://iconmonstr.com/
 [langs]: http://www.annabell.langs.de
