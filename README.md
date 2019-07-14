@@ -67,7 +67,7 @@ I am happy to hear your feedback. Please get in contact if you have found a bug 
 Pagela icon from [iconmonstr][icon]
 
 <!-- Markdown link & img dfn's -->
-[conf-image]: https://img.shields.io/badge/Confluence-6.15.2-green.svg
+[conf-image]: https://img.shields.io/badge/Confluence-6.15.6-green.svg
 [conf-url]: https://atlassian.com/software/confluence
 [conf-dev]: https://developer.atlassian.com/server/framework/atlassian-sdk/
 [conf-install-app]: https://confluence.atlassian.com/upm/installing-add-ons-273875715.html
