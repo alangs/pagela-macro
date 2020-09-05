@@ -1,4 +1,4 @@
-# Pagela Confluence Macro
+# Pagela Macro for Confluence
 > Pagela (**Page** **La**beler) is a Confluence app (or macro) allowing to add from a configured list of labels one or multiple of these to pages. 
 
 [![Confluence Version][conf-image]][conf-url] ![License][license-image]
@@ -8,9 +8,13 @@ Thus the macro allows to curate labels for certain pages. One use case could be 
 
 The macro provides texts in German or English.
 
-![Pagela-Form1](src/main/resources/images/highlight3_cropped.png)
-![Pagela-Form2](src/main/resources/images/highlight1_cropped.png)
+![Pagela-Banner](src/main/resources/images/pluginBanner.png)
+
+![Pagela-Form1](src/main/resources/images/highlight1_cropped.png)
+
 ![Pagela-Form2](src/main/resources/images/highlight2_cropped.png)
+
+![Pagela-Form3](src/main/resources/images/highlight3_cropped.png)
 
 ## Installation
 
@@ -32,7 +36,7 @@ Save the page with the pagela macro and switch to the actual view of the page. I
 
 The first field allows to select a page to which the labels should be added to. The second field allows to select one or multiple of the labels, that were configured during the macro setup.
 
-Upon submitting the form, the label(s) will be added to the specified page. In case there is an issue with the request, appropriate messages will issued to the user.
+Upon submitting the form, the label(s) will be added to the specified page. In case there is an issue with the request, appropriate messages will be issued to the user.
 
 ## <a name="dev"></a>Development setup
 
@@ -62,15 +66,11 @@ This app is still under development.
 
 I am happy to hear your feedback. Please get in contact if you have found a bug or simply follow the general GitHub process by creating a pull request.
 
-## Attribution
-
-Pagela icon from [iconmonstr][icon]
 
 <!-- Markdown link & img dfn's -->
-[conf-image]: https://img.shields.io/badge/Confluence-6.15.6-green.svg
+[conf-image]: https://img.shields.io/badge/Confluence-7.7.3-green.svg
 [conf-url]: https://atlassian.com/software/confluence
 [conf-dev]: https://developer.atlassian.com/server/framework/atlassian-sdk/
 [conf-install-app]: https://confluence.atlassian.com/upm/installing-add-ons-273875715.html
 [license-image]: https://img.shields.io/github/license/alangs/pagela-macro.svg
-[icon]: https://iconmonstr.com/
 [langs]: http://www.annabell.langs.de

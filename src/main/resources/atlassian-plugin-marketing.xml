@@ -1,8 +1,8 @@
 <atlassian-plugin-marketing>
 
-	<!--Describe names and versions of compatible applications -->
+	<!-- Describe names and versions of compatible applications -->
 	<compatibility>
-		<product name="confluence" min="6.0" max="6.15.2" />
+		<product name="confluence" min="6.0" max="7.7.3" />
 	</compatibility>
 
 	<!-- Describe your app logo and banner. The banner is only displayed in 
@@ -12,9 +12,9 @@
 
 	<!-- Describe highlight and cropped highlight image assets, in order. -->
 	<highlights>
-		<highlight image="images/highlight1.jpg" cropped="images/highlight1_cropped.jpg" />
-		<highlight image="images/highlight2.jpg" cropped="images/highlight2_cropped.jpg" />
-		<highlight image="images/highlight3.jpg" cropped="images/highlight3_cropped.jpg" />
+		<highlight image="images/highlight1.png" cropped="images/highlight1_cropped.png" />
+		<highlight image="images/highlight2.png" cropped="images/highlight2_cropped.png" />
+		<highlight image="images/highlight3.png" cropped="images/highlight3_cropped.png" />
 	</highlights>
 
 </atlassian-plugin-marketing>
