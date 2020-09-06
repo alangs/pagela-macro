@@ -3,10 +3,12 @@
 
 [![Confluence Version][conf-image]][conf-url] ![License][license-image]
 
-This Confluence app allows to add a macro to a page with labels that can be configured. The rendered result is a form that allows users to add one or more of the predefined labels to be added to any page.
-Thus the macro allows to curate labels for certain pages. One use case could be to setup a skills database where users can select from a list to add labels (i.e. skills) to a page (i.e. their personal page). Thereby different spellings (of labels) can be avoided.
+This Confluence app allows to add a macro to a page with labels that can be configured. The macro is then rendered as a form which allows users to add one or more of the predefined labels to any page.
+Thus the macro allows to curate labels for certain pages. 
 
-The macro provides texts in German or English.
+One use case could be to setup a skills database where users can select from a list of labels (i.e. skills) those that they want to add to a page (i.e. their personal page). Thereby different spellings (of labels) can be avoided.
+
+The macro provides texts in German and English. In addition, it allows to fully customize the texts of the rendered form to make it more user friendly for specific use cases.
 
 ![Pagela-Banner](src/main/resources/images/pluginBanner.png)
 
