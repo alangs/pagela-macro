@@ -32,6 +32,8 @@ atlas-package
 
 This generates a jar file within Maven's target folder. The file can be uploaded as an app in Confluence's "Manage apps" administrative menu. For more details, see [Installing Marketplace apps - Installing by file upload][conf-install-app].
 
+The generated jar file is also provided for each release on Github.
+
 ## Usage example
 
 Create a page in Confluence. In the macro browser, search for "pagela". In the setup dialog, add any amount of labels and optionally customize the form's texts.
