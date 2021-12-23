@@ -151,27 +151,4 @@ AJS.toInit(function ($) {
 
     });
 
-    // // cannot be used with autocomplete field
-    // AJS.formValidation.register(['pageexists'], function(field) {
-    // var pageId = getPageId(field.args("value"));
-    //        
-    // if (typeof pageId === "undefined") {
-    // field.invalidate(AJS.format("Not a page"));
-    // } else {
-    // field.validate();
-    // }
-    // });
-
-    // // isBusy is reported as not being a function
-    // AJS.$(document).on("click", "#add-labels", function () {
-    // var that = this;
-    // if (!that.isBusy()) {
-    // that.busy();
-    //
-    // setTimeout(function () {
-    // that.idle();
-    // }, 2000);
-    // }
-    // });
-
 })
