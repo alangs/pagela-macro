@@ -72,7 +72,7 @@ I am happy to hear your feedback. Please get in contact if you have found a bug 
 
 
 <!-- Markdown link & img dfn's -->
-[conf-image]: https://img.shields.io/badge/Confluence-7.7.3-green.svg
+[conf-image]: https://img.shields.io/badge/Confluence-7.15.0-green.svg
 [conf-url]: https://atlassian.com/software/confluence
 [conf-dev]: https://developer.atlassian.com/server/framework/atlassian-sdk/
 [conf-install-app]: https://confluence.atlassian.com/upm/installing-add-ons-273875715.html
