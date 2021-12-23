@@ -20,7 +20,9 @@ The macro provides texts in German and English. In addition, it allows to fully 
 
 ## Installation
 
-Setup Atlassian's SDK developer environment as mentioned under [Development setup](#dev).
+You can install this app directly from Atlassian's [Marketplace][pagela-marketplace].
+
+Alternatively, setup Atlassian's SDK developer environment as mentioned under [Development setup](#dev).
 
 Then execute the following command:
 
@@ -56,11 +58,11 @@ Though the macro was manually tested during development, there are currently no 
 
 ## More
 
-Annabell Langs - [annabell.langs.de](http://www.annabell.langs.de)
+Annabell Langs - [annabell.langs.de][langs]
 
 Distributed under the MIT license. See ``LICENSE`` for more information.
 
-[https://github.com/alangs/pagela-macro](https://github.com/dbader/)
+[https://github.com/alangs/pagela-macro][pagela-github]
 
 ## Contributing
 
@@ -76,3 +78,5 @@ I am happy to hear your feedback. Please get in contact if you have found a bug 
 [conf-install-app]: https://confluence.atlassian.com/upm/installing-add-ons-273875715.html
 [license-image]: https://img.shields.io/github/license/alangs/pagela-macro.svg
 [langs]: http://www.annabell.langs.de
+[pagela-marketplace]: https://marketplace.atlassian.com/apps/1223503/pagela-page-labeler?tab=overview&hosting=server
+[pagela-github]: https://github.com/alangs/pagela-macro
