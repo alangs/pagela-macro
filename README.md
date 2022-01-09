@@ -58,19 +58,19 @@ This launches a developer Confluence instance.
 
 Though the macro was manually tested during development, there are currently no tests yet.
 
-## More
-
-Annabell Langs - [annabell.langs.de][langs]
+## License
 
 Distributed under the MIT license. See ``LICENSE`` for more information.
-
-[https://github.com/alangs/pagela-macro][pagela-github]
 
 ## Contributing
 
 This app is still under development.
 
 I am happy to hear your feedback. Please get in contact if you have found a bug or simply follow the general GitHub process by creating a pull request.
+
+## More
+
+I have also created the [Archivela][archivela-github] plugin for Confluence that automatically archives labeled pages when they are "expired".
 
 
 <!-- Markdown link & img dfn's -->
@@ -79,6 +79,5 @@ I am happy to hear your feedback. Please get in contact if you have found a bug 
 [conf-dev]: https://developer.atlassian.com/server/framework/atlassian-sdk/
 [conf-install-app]: https://confluence.atlassian.com/upm/installing-add-ons-273875715.html
 [license-image]: https://img.shields.io/github/license/alangs/pagela-macro.svg
-[langs]: http://www.annabell.langs.de
 [pagela-marketplace]: https://marketplace.atlassian.com/apps/1223503/pagela-page-labeler?tab=overview&hosting=server
-[pagela-github]: https://github.com/alangs/pagela-macro
+[archivela-github]: https://github.com/alangs/archivela
