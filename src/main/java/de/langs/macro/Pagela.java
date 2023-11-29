@@ -24,102 +24,102 @@ import com.atlassian.sal.api.message.I18nResolver;
 
 public class Pagela extends BaseMacro implements Macro {
 
-	private final VelocityHelperService velocityHelperService;
+    private final VelocityHelperService velocityHelperService;
 
-	private final ConfluenceWebResourceManager confluenceWebResourceManager;
+    private final ConfluenceWebResourceManager confluenceWebResourceManager;
 
-	private final I18nResolver i18n;
+    private final I18nResolver i18n;
 
-	private static final String VM_PATH = "/vm/pagela-macro.vm";
+    private static final String VM_PATH = "/vm/pagela-macro.vm";
 
-	@Autowired
-	public Pagela(@ComponentImport VelocityHelperService velocityHelperService,
-			@ComponentImport ConfluenceWebResourceManager confluenceWebResourceManager,
-			@ComponentImport I18nResolver i18n) {
-		this.velocityHelperService = velocityHelperService;
-		this.confluenceWebResourceManager = confluenceWebResourceManager;
-		this.i18n = i18n;
-	}
+    @Autowired
+    public Pagela(@ComponentImport VelocityHelperService velocityHelperService,
+            @ComponentImport ConfluenceWebResourceManager confluenceWebResourceManager,
+            @ComponentImport I18nResolver i18n) {
+        this.velocityHelperService = velocityHelperService;
+        this.confluenceWebResourceManager = confluenceWebResourceManager;
+        this.i18n = i18n;
+    }
 
-	@SuppressWarnings({ "unchecked", "rawtypes" })
-	@Override
-	public String execute(Map macroParams, String s, RenderContext renderContext) throws MacroException {
-		try {
-			return execute(macroParams, s, new DefaultConversionContext(renderContext));
-		} catch (MacroExecutionException e) {
-			throw new MacroException(e.getMessage());
-		}
-	}
+    @SuppressWarnings({ "unchecked", "rawtypes" })
+    @Override
+    public String execute(Map macroParams, String s, RenderContext renderContext) throws MacroException {
+        try {
+            return execute(macroParams, s, new DefaultConversionContext(renderContext));
+        } catch (MacroExecutionException e) {
+            throw new MacroException(e.getMessage());
+        }
+    }
 
-	@Override
-	public String execute(Map<String, String> parameters, String body, ConversionContext conversionContext)
-			throws MacroExecutionException {
+    @Override
+    public String execute(Map<String, String> parameters, String body, ConversionContext conversionContext)
+            throws MacroExecutionException {
 
-		String spaceKey = parameters.get("spaceKey");
-		if (StringUtils.isBlank(spaceKey)) {
-			spaceKey = i18n.getText("de.langs.pagela-macro.pagela.param.spaceKey.default");
-		}
-		String buttonText = parameters.get("buttonText");
-		if (StringUtils.isBlank(buttonText)) {
-			buttonText = i18n.getText("de.langs.pagela-macro.pagela.param.buttonText.default");
-		}
-		String labelAltName = parameters.get("labelAltName");
-		if (StringUtils.isBlank(labelAltName)) {
-			labelAltName = i18n.getText("de.langs.pagela-macro.pagela.param.labelAltName.default");
-		}
-		String labelHelp = parameters.get("labelHelp");
-		if (StringUtils.isBlank(labelHelp)) {
-			labelHelp = i18n.getText("de.langs.pagela-macro.pagela.param.labelHelp.default");
-		}
-		String pageAltName = parameters.get("pageAltName");
-		if (StringUtils.isBlank(pageAltName)) {
-			pageAltName = i18n.getText("de.langs.pagela-macro.pagela.param.pageAltName.default");
-		}
-		String pageHelp = parameters.get("pageHelp");
-		if (StringUtils.isBlank(pageHelp)) {
-			pageHelp = i18n.getText("de.langs.pagela-macro.pagela.param.pageHelp.default");
-		}
+        String spaceKey = parameters.get("spaceKey");
+        if (StringUtils.isBlank(spaceKey)) {
+            spaceKey = i18n.getText("de.langs.pagela-macro.pagela.param.spaceKey.default");
+        }
+        String buttonText = parameters.get("buttonText");
+        if (StringUtils.isBlank(buttonText)) {
+            buttonText = i18n.getText("de.langs.pagela-macro.pagela.param.buttonText.default");
+        }
+        String labelAltName = parameters.get("labelAltName");
+        if (StringUtils.isBlank(labelAltName)) {
+            labelAltName = i18n.getText("de.langs.pagela-macro.pagela.param.labelAltName.default");
+        }
+        String labelHelp = parameters.get("labelHelp");
+        if (StringUtils.isBlank(labelHelp)) {
+            labelHelp = i18n.getText("de.langs.pagela-macro.pagela.param.labelHelp.default");
+        }
+        String pageAltName = parameters.get("pageAltName");
+        if (StringUtils.isBlank(pageAltName)) {
+            pageAltName = i18n.getText("de.langs.pagela-macro.pagela.param.pageAltName.default");
+        }
+        String pageHelp = parameters.get("pageHelp");
+        if (StringUtils.isBlank(pageHelp)) {
+            pageHelp = i18n.getText("de.langs.pagela-macro.pagela.param.pageHelp.default");
+        }
 
-		String labels = parameters.get("labels");
-		List<String> labelsList = new ArrayList<String>();
-		labelsList = Arrays.asList(labels.split(",")).stream().distinct().sorted().collect(Collectors.toList());
+        String labels = parameters.get("labels");
+        List<String> labelsList = new ArrayList<String>();
+        labelsList = Arrays.asList(labels.split(",")).stream().distinct().sorted().collect(Collectors.toList());
 
-		final Map<String, Object> contextMap = getMacroVelocityContext();
-		contextMap.put("spaceKey", spaceKey);
-		contextMap.put("buttonText", buttonText);
-		contextMap.put("labelAltName", labelAltName);
-		contextMap.put("labelHelp", labelHelp);
-		contextMap.put("pageAltName", pageAltName);
-		contextMap.put("pageHelp", pageHelp);
-		contextMap.put("labels", labelsList);
-		contextMap.put("webResourceManager", confluenceWebResourceManager);
+        final Map<String, Object> contextMap = getMacroVelocityContext();
+        contextMap.put("spaceKey", spaceKey);
+        contextMap.put("buttonText", buttonText);
+        contextMap.put("labelAltName", labelAltName);
+        contextMap.put("labelHelp", labelHelp);
+        contextMap.put("pageAltName", pageAltName);
+        contextMap.put("pageHelp", pageHelp);
+        contextMap.put("labels", labelsList);
+        contextMap.put("webResourceManager", confluenceWebResourceManager);
 
-		return renderWithVelocityTemplate(contextMap);
-	}
+        return renderWithVelocityTemplate(contextMap);
+    }
 
-	public BodyType getBodyType() {
-		return BodyType.NONE;
-	}
+    public BodyType getBodyType() {
+        return BodyType.NONE;
+    }
 
-	public OutputType getOutputType() {
-		return OutputType.BLOCK;
-	}
+    public OutputType getOutputType() {
+        return OutputType.BLOCK;
+    }
 
-	@Override
-	public RenderMode getBodyRenderMode() {
-		return RenderMode.NO_RENDER;
-	}
+    @Override
+    public RenderMode getBodyRenderMode() {
+        return RenderMode.NO_RENDER;
+    }
 
-	@Override
-	public boolean hasBody() {
-		return false;
-	}
+    @Override
+    public boolean hasBody() {
+        return false;
+    }
 
-	private String renderWithVelocityTemplate(Map<String, Object> contextMap) {
-		return velocityHelperService.getRenderedTemplate(VM_PATH, contextMap);
-	}
+    private String renderWithVelocityTemplate(Map<String, Object> contextMap) {
+        return velocityHelperService.getRenderedTemplate(VM_PATH, contextMap);
+    }
 
-	private Map<String, Object> getMacroVelocityContext() {
-		return velocityHelperService.createDefaultVelocityContext();
-	}
+    private Map<String, Object> getMacroVelocityContext() {
+        return velocityHelperService.createDefaultVelocityContext();
+    }
 }
