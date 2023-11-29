@@ -5,15 +5,16 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
+
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+
 import com.atlassian.confluence.content.render.xhtml.ConversionContext;
 import com.atlassian.confluence.content.render.xhtml.DefaultConversionContext;
 import com.atlassian.confluence.macro.Macro;
 import com.atlassian.confluence.macro.MacroExecutionException;
 import com.atlassian.confluence.plugin.services.VelocityHelperService;
 import com.atlassian.confluence.plugin.webresource.ConfluenceWebResourceManager;
-import com.atlassian.plugin.spring.scanner.annotation.component.Scanned;
 import com.atlassian.plugin.spring.scanner.annotation.imports.ComponentImport;
 import com.atlassian.renderer.RenderContext;
 import com.atlassian.renderer.v2.RenderMode;
@@ -21,7 +22,6 @@ import com.atlassian.renderer.v2.macro.BaseMacro;
 import com.atlassian.renderer.v2.macro.MacroException;
 import com.atlassian.sal.api.message.I18nResolver;
 
-@Scanned
 public class Pagela extends BaseMacro implements Macro {
 
     private final VelocityHelperService velocityHelperService;
@@ -41,10 +41,9 @@ public class Pagela extends BaseMacro implements Macro {
         this.i18n = i18n;
     }
 
-    @SuppressWarnings({"unchecked", "rawtypes"})
+    @SuppressWarnings({ "unchecked", "rawtypes" })
     @Override
-    public String execute(Map macroParams, String s, RenderContext renderContext)
-            throws MacroException {
+    public String execute(Map macroParams, String s, RenderContext renderContext) throws MacroException {
         try {
             return execute(macroParams, s, new DefaultConversionContext(renderContext));
         } catch (MacroExecutionException e) {
@@ -53,8 +52,8 @@ public class Pagela extends BaseMacro implements Macro {
     }
 
     @Override
-    public String execute(Map<String, String> parameters, String body,
-            ConversionContext conversionContext) throws MacroExecutionException {
+    public String execute(Map<String, String> parameters, String body, ConversionContext conversionContext)
+            throws MacroExecutionException {
 
         String spaceKey = parameters.get("spaceKey");
         if (StringUtils.isBlank(spaceKey)) {
@@ -83,8 +82,7 @@ public class Pagela extends BaseMacro implements Macro {
 
         String labels = parameters.get("labels");
         List<String> labelsList = new ArrayList<String>();
-        labelsList = Arrays.asList(labels.split(",")).stream().distinct().sorted()
-                .collect(Collectors.toList());
+        labelsList = Arrays.asList(labels.split(",")).stream().distinct().sorted().collect(Collectors.toList());
 
         final Map<String, Object> contextMap = getMacroVelocityContext();
         contextMap.put("spaceKey", spaceKey);

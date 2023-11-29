@@ -6,7 +6,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>de.langs</groupId>
     <artifactId>pagela-macro</artifactId>
-    <version>1.0.1</version>
+    <version>1.1.0</version>
 
     <name>Pagela</name>
     <description>Pagela (Page Labeler) Macro for Confluence.</description>
@@ -46,6 +46,18 @@
         </developer>
     </developers>
 
+    <!-- https://jira.atlassian.com/browse/CONFSERVER-93208 -->
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.atlassian.struts2</groupId>
+                <artifactId>struts-support</artifactId>
+                <version>1.2.2</version>
+                <scope>provided</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
@@ -64,14 +76,7 @@
             <groupId>com.atlassian.plugin</groupId>
             <artifactId>atlassian-spring-scanner-annotation</artifactId>
             <version>${atlassian.spring.scanner.version}</version>
-            <scope>compile</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>com.atlassian.plugin</groupId>
-            <artifactId>atlassian-spring-scanner-runtime</artifactId>
-            <version>${atlassian.spring.scanner.version}</version>
-            <scope>runtime</scope>
+            <scope>provided</scope>
         </dependency>
 
         <dependency>
@@ -151,12 +156,6 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <scannedDependencies>
-                        <dependency>
-                            <groupId>com.atlassian.plugin</groupId>
-                            <artifactId>atlassian-spring-scanner-external-jar</artifactId>
-                        </dependency>
-                    </scannedDependencies>
                     <verbose>false</verbose>
                 </configuration>
             </plugin>
@@ -164,11 +163,11 @@
     </build>
 
     <properties>
-        <confluence.version>7.15.0</confluence.version>
-        <confluence.data.version>7.15.0</confluence.data.version>
-        <amps.version>8.0.0</amps.version>
-        <plugin.testrunner.version>1.2.3</plugin.testrunner.version>
-        <atlassian.spring.scanner.version>1.2.13</atlassian.spring.scanner.version>
+        <confluence.version>8.5.3</confluence.version>
+        <confluence.data.version>8.5.3</confluence.data.version>
+        <amps.version>8.11.4</amps.version>
+        <plugin.testrunner.version>2.0.2</plugin.testrunner.version>
+        <atlassian.spring.scanner.version>2.1.7</atlassian.spring.scanner.version>
         <!-- This key is used to keep the consistency between the key in atlassian-plugin.xml 
             and the key to generate bundle. -->
         <atlassian.plugin.key>${project.groupId}.${project.artifactId}</atlassian.plugin.key>

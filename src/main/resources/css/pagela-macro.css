@@ -1,5 +1,5 @@
 /* Adjust width of dropdown on the input page selection field */
-#pagela-form .aui-dd-parent .aui-dropdown {
+#pagela-form .pagela-select {
     min-width: 100%;
 }
 
